@@ -4,6 +4,7 @@ import { Text, View } from 'react-native';
 import { SafeAreaProvider,SafeAreaView } from 'react-native-safe-area-context';
 import { Header } from './components/header';
 import { useFonts } from 'expo-font';
+import { EssentialMessage } from './components/message';
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -30,9 +31,7 @@ export default function App() {
     <SafeAreaProvider  onLayout={onLayoutRootView}>
       <SafeAreaView style={{ marginHorizontal: 8 }} >
         <Header />
-        <View>
-          <Text style={{ fontFamily: 'SF-Pro-Rounded-Bold' }} >Open up App.js to start working on your app!</Text>
-        </View>
+        <EssentialMessage />
         <StatusBar style="auto" />
       </SafeAreaView>
     </SafeAreaProvider>
