@@ -1,10 +1,11 @@
 import { useCallback } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaProvider,SafeAreaView } from 'react-native-safe-area-context';
 import { Header } from './components/header';
 import { useFonts } from 'expo-font';
 import { EssentialMessage } from './components/message';
+import { ScanList } from './components/container';
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -29,11 +30,20 @@ export default function App() {
 
   return (
     <SafeAreaProvider  onLayout={onLayoutRootView}>
-      <SafeAreaView style={{ marginHorizontal: 8 }} >
+      <StatusBar style="auto" />
+      <SafeAreaView style={{ marginHorizontal: 8, flex: 1 }} >
         <Header />
-        <EssentialMessage />
-        <StatusBar style="auto" />
+        <View style={styles.container} >
+          <ScanList />
+        </View>
       </SafeAreaView>
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    height: '100%'
+  }
+});
