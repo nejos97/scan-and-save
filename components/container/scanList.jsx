@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 export const ScanList = () => {
     return (
-        <View  style={styles.container}>
+        <View style={styles.container}>
             <Pressable onPress={() => {
                 console.log('Openning camera...')
             }} >
